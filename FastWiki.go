@@ -2,9 +2,11 @@ package main
 
 import (
 	"FastWiki/Controller/reciprocal"
+	"FastWiki/Dao/ElasticSearch"
 	"FastWiki/Dao/MySql"
 	"FastWiki/Dao/Redis"
 	"FastWiki/Logger"
+	"FastWiki/RabbitMQ"
 	"FastWiki/RouterS"
 	"FastWiki/Setting"
 	"context"
@@ -42,11 +44,16 @@ func main() {
 	}
 	defer Redis.Close()
 	//5.初始化ElasticSearch连接
-	//if err := ElasticSearch.Init(Setting.Conf.ElaSearchConfig); err != nil {
-	//	zap.L().Error("ElasticSearch链接失败", zap.Error(err))
-	//	return
-	//}
+	if err := ElasticSearch.Init(Setting.Conf.ElaSearchConfig); err != nil {
+		zap.L().Error("ElasticSearch链接失败", zap.Error(err))
+		return
+	}
 	//6.初始化RabbitMQ
+	if err := RabbitMQ.InitRabbitMq(); err != nil {
+		zap.L().Error("RabbitMQ 连接失败：,", zap.Error(err))
+		return
+	}
+	defer RabbitMQ.Close()
 
 	//7.初始化路由，配置自己的日志收集工具替换Gin原生的日志工具
 	r := RouterS.Setup(Setting.Conf.Mode)
