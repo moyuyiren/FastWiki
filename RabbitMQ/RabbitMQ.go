@@ -5,21 +5,21 @@ import (
 	"go.uber.org/zap"
 )
 
-var Ch *amqp.Channel
-var Conn *amqp.Connection
+var ch *amqp.Channel
+var conn *amqp.Connection
 
 func InitRabbitMq() error {
-	Conn, err := amqp.Dial("amqp://yiren:asx123..@120.77.42.228:5672/")
+	conn, err := amqp.Dial("amqp://root:root@127.0.0.1:5672/")
 	if err != nil {
 		zap.L().Error("RabbitMQ Connection Field", zap.Error(err))
 		return err
 	}
-	Ch, err := Conn.Channel()
+	ch, err := conn.Channel()
 	if err != nil {
 		zap.L().Error("RabbitMQ Create Channel Field", zap.Error(err))
 		return err
 	}
-	err = Ch.ExchangeDeclare(
+	err = ch.ExchangeDeclare(
 		"sms_server", // name
 		"direct",     // type
 		true,         // durable
@@ -33,8 +33,8 @@ func InitRabbitMq() error {
 		return err
 	}
 
-	q, err := Ch.QueueDeclare(
-		"",    // name
+	q, err := ch.QueueDeclare(
+		"sms", // name
 		false, // durable
 		false, // delete when unused
 		true,  // exclusive
@@ -45,7 +45,7 @@ func InitRabbitMq() error {
 		zap.L().Error("RabbitMQ Create Queue Field", zap.Error(err))
 		return err
 	}
-	err = Ch.QueueBind(
+	err = ch.QueueBind(
 		q.Name,       // queue name
 		"sms_send",   // routing key
 		"sms_server", // exchange
@@ -62,7 +62,7 @@ func InitRabbitMq() error {
 }
 
 func Close() {
-	Conn.Close()
-	Ch.Close()
+	conn.Close()
+	ch.Close()
 	return
 }
