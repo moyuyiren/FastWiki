@@ -4,6 +4,8 @@ import (
 	"FastWiki/Dao/MySql"
 	"FastWiki/Dao/Redis"
 	"FastWiki/Model"
+	"FastWiki/RabbitMQ"
+	"errors"
 	"go.uber.org/zap"
 )
 
@@ -28,6 +30,9 @@ func FlushRedisMessageForMain(p *Model.Userpermissions) (err error) {
 	//验证用户权限是否真实
 	user := new(Model.Userpermissions)
 	if err = UserRightsVerify(p, user); err != nil {
+		if errr := RabbitMQ.SendMessage("The password of the super administrator has been leaked. Handle it in a timely manner"); errr != nil {
+			return errors.New(err.Error() + errr.Error())
+		}
 		return err
 	}
 

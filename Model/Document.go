@@ -1,9 +1,5 @@
 package Model
 
-import (
-	"github.com/gin-gonic/gin"
-)
-
 // ========================================后端数据
 type DocMassage struct {
 	Uniposcod     string `json:"uniposcod" xorm:"uniposcod"`
@@ -37,6 +33,4 @@ type Table struct {
 	TableDocumentFourth string `mapstructure:"tableDocumentFourth"`
 }
 
-func GetDocMassage(c gin.Context) (err error, Docc DocMassage) {
-
-}
+//func GetDocMassage(c gin.Context) (err error, Docc DocMassage) {}

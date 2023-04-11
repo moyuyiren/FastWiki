@@ -20,5 +20,8 @@ func Init(config *Setting.ElaSearchConfig) (err error) {
 		},
 	}
 	esClient, err = elasticsearch.NewClient(cfg)
-	return err
+	if err != nil {
+		return err
+	}
+	return nil
 }

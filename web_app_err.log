@@ -5,3 +5,4 @@
 {"level":"ERROR","time":"2022-11-21T15:36:37.168+0800","caller":"Logic/UserLogic.go:93","msg":"全量分页查询用户信息失败","error":"Error 1690: signed integer value is out of range in 'mysqld_stmt_execute'"}
 {"level":"ERROR","time":"2022-11-21T17:19:12.075+0800","caller":"Logic/AdministratorLogic.go:18","msg":"This Token Is fake"}
 {"level":"ERROR","time":"2022-11-21T17:20:37.206+0800","caller":"Logic/AdministratorLogic.go:18","msg":"This Token Is fake"}
+{"level":"ERROR","time":"2023-03-29T22:02:39.668+0800","caller":"FastWiki/FastWiki.go:40","msg":"Redis数据库链接失败：,","error":"context deadline exceeded"}

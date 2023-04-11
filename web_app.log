@@ -1,3 +1,4 @@
 {"level":"ERROR","time":"2022-11-21T17:20:37.206+0800","caller":"Logic/AdministratorLogic.go:18","msg":"This Token Is fake"}
 {"level":"INFO","time":"2022-11-21T17:20:37.614+0800","caller":"Logger/logger.go:81","msg":"/api/Gcot/SetUserLevel","status":200,"method":"POST","path":"/api/Gcot/SetUserLevel","query":"","ip":"127.0.0.1","user-agent":"apifox/1.0.0 (https://www.apifox.cn)","errors":"","cost":0.4089817}
 {"level":"INFO","time":"2022-11-21T17:24:43.042+0800","caller":"Logger/logger.go:81","msg":"/api/Gcot/SetUserLevel","status":200,"method":"POST","path":"/api/Gcot/SetUserLevel","query":"","ip":"127.0.0.1","user-agent":"apifox/1.0.0 (https://www.apifox.cn)","errors":"","cost":0.6633701}
+{"level":"ERROR","time":"2023-03-29T22:02:39.668+0800","caller":"FastWiki/FastWiki.go:40","msg":"Redis数据库链接失败：,","error":"context deadline exceeded"}
