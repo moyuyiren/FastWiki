@@ -20,21 +20,21 @@ redis作为缓存为系统提供主要数据的服务
 
 项目目录
 .
-├─.idea
-│  └─inspectionProfiles
-├─Config  配置文件
-├─Controller  分发层
-│  └─reciprocal 前端返回封装
-├─Dao   数据层
-│  ├─ElasticSearch
-│  ├─MySql
-│  └─Redis
-├─Logger 日志管理
-├─Logic  逻辑层
-├─Middlewares  中间件
-├─Model  
-├─RabbitMQ  MQ
-├─RouterS   路由及中间件管理
-├─Setting   配置文件实例化及热部署实现
-├─Token     登录管理
-└─Utils     工具
+├─.idea  
+│  └─inspectionProfiles  
+├─Config  配置文件  
+├─Controller  分发层  
+│  └─reciprocal 前端返回封装  
+├─Dao   数据层  
+│  ├─ElasticSearch  
+│  ├─MySql  
+│  └─Redis  
+├─Logger 日志管理  
+├─Logic  逻辑层  
+├─Middlewares  中间件  
+├─Model    
+├─RabbitMQ  MQ  
+├─RouterS   路由及中间件管理  
+├─Setting   配置文件实例化及热部署实现  
+├─Token     登录管理  
+└─Utils     工具  
