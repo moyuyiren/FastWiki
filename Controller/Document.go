@@ -8,6 +8,7 @@ import (
 	"go.uber.org/zap"
 )
 
+// CreatePostHandler 创建文档
 func CreatePostHandler(c *gin.Context) {
 	userid, userPerm, err := getCurrentUserID(c)
 	if err != nil {
@@ -24,5 +25,16 @@ func CreatePostHandler(c *gin.Context) {
 		reciprocal.ResponseError(c, reciprocal.CodeServerBusy)
 	}
 	reciprocal.ResponseSuccess(c, "新建文档成功")
+
+}
+
+// GetMessage 查询文档
+func GetMessage(c *gin.Context) {
+	substance := c.Query("substance")
+	if substance == "" {
+		reciprocal.ResponseError(c, reciprocal.CodeInvalidParams)
+	}
+	//model.
+	//reciprocal.ResponseSuccess(c)
 
 }
