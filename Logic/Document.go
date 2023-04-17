@@ -9,5 +9,5 @@ func UserCreatePost() (err error) {
 
 func GetMessage(substance string) (*Model.DocMassage, error) {
 
-	return
+	return nil, nil
 }

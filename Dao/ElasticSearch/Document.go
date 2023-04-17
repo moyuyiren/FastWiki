@@ -2,11 +2,10 @@ package ElasticSearch
 
 import "FastWiki/Model"
 
-func CreateNewDocument() () {
-	esClient.API.Cat.
+func CreateNewDocument() {
 
 }
 
-func GetMessage(substance string)(*Model.DocMassage, error) {
-
+func GetMessage(substance string) (*Model.DocMassage, error) {
+	return nil, nil
 }

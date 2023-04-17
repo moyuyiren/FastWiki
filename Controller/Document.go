@@ -34,7 +34,7 @@ func GetMessage(c *gin.Context) {
 	if substance == "" {
 		reciprocal.ResponseError(c, reciprocal.CodeInvalidParams)
 	}
-	model.
-		reciprocal.ResponseSuccess(c)
+	//model.
+	//reciprocal.ResponseSuccess(c)
 
 }
