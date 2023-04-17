@@ -17,6 +17,7 @@ func Setup(mode string) *gin.Engine {
 	r.Use(Logger.GinLogger(), Logger.GinRecovery(true))
 	/*无需登录*/
 	//首页内容=====================================================================================
+	r.GET("/getMessage",Controller.)
 
 	/*需要登录*/
 	User := r.Group("/api/Gcot")
